@@ -71,9 +71,9 @@ public class ReactorOperatorTest {
     //based on the BiFunction provided
     @Test
     void testZipFlux() {
-        Flux<Integer> oneToFive = Flux.range(1, 5);
+        Flux<Integer> oneToFive = Flux.just(1);
         Flux<Integer> sixToTen = Flux.range(6, 5);
-        Flux.zip(oneToFive, sixToTen,
+        Flux.zip( sixToTen,oneToFive,
 
                 (item1, item2) -> item1 + " " + item2)
                 .subscribe(System.out::println);
